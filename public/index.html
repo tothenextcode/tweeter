@@ -12,6 +12,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,17 +23,28 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>
-        <p id="logo">Tweeter</p>
-        <div class="new-tweet">
-          <p><b>Write</b> a new tweet</p>
-          <i class="fa-solid fa-angles-down"></i>
-        </div>
-      </span>
+    <nav class="nav-bar">
+      <h1 id="logo"><span>Tweeter</span></h1>
+      <div class="new-tweet">
+        <p><span>Write</span> a new tweet</p>
+        <i class="fa-solid fa-angles-down"></i>
+      </div>
     </nav>
 
+    <header>
+      <div class="avatar">
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Your Name</h2>
+      </div>
+    </header>
+    
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ducimus odit voluptas corrupti cupiditate eum et quas eligendi doloremque, debitis in dolore omnis, at quod. Perferendis maiores officiis numquam, ipsa voluptatem veritatis dolore quo praesentium iusto illum id quam, culpa ad illo soluta delectus voluptas totam a voluptatibus eius. Distinctio dignissimos illo error omnis, fuga sit porro exercitationem dolorem fugiat maiores ducimus odit laborum est inventore impedit facere animi dicta sed corrupti numquam aut quidem nobis beatae commodi. In esse id quaerat sequi doloremque iusto est ad illo, at cupiditate optio nihil dolorem totam nemo? Harum dolores deleniti id veniam.</p>
+    </main>
+
   </body>
 </html>
