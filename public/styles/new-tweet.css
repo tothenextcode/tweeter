@@ -1,0 +1,34 @@
+/* .new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
+.new-tweet form {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+}
+
+.new-tweet textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid gray;
+  margin-bottom: 1rem;
+  min-height: 2rem;
+  max-height: 4rem;
+  max-width: 100%;
+}
+
+.new-tweet div {
+  font-family: 'Bungee';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-tweet button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
