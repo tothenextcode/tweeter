@@ -25,7 +25,7 @@
     <!-- Top nav bar (fixed) -->
     <nav class="nav-bar">
       <h1 id="logo"><span>Tweeter</span></h1>
-      <div class="new-tweet">
+      <div class="write-tweet">
         <p><span>Write</span> a new tweet</p>
         <i class="fa-solid fa-angles-down"></i>
       </div>
@@ -42,8 +42,17 @@
     
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ducimus odit voluptas corrupti cupiditate eum et quas eligendi doloremque, debitis in dolore omnis, at quod. Perferendis maiores officiis numquam, ipsa voluptatem veritatis dolore quo praesentium iusto illum id quam, culpa ad illo soluta delectus voluptas totam a voluptatibus eius. Distinctio dignissimos illo error omnis, fuga sit porro exercitationem dolorem fugiat maiores ducimus odit laborum est inventore impedit facere animi dicta sed corrupti numquam aut quidem nobis beatae commodi. In esse id quaerat sequi doloremque iusto est ad illo, at cupiditate optio nihil dolorem totam nemo? Harum dolores deleniti id veniam.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum ducimus odit voluptas corrupti cupiditate eum et quas eligendi doloremque, debitis in dolore omnis, at quod. Perferendis maiores officiis numquam, ipsa voluptatem veritatis dolore quo praesentium iusto illum id quam, culpa ad illo soluta delectus voluptas totam a voluptatibus eius. Distinctio dignissimos illo error omnis, fuga sit porro exercitationem dolorem fugiat maiores ducimus odit laborum est inventore impedit facere animi dicta sed corrupti numquam aut quidem nobis beatae commodi. In esse id quaerat sequi doloremque iusto est ad illo, at cupiditate optio nihil dolorem totam nemo? Harum dolores deleniti id veniam.</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
 
   </body>
