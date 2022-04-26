@@ -1,6 +1,6 @@
 header {
-  padding-top: 30vh;
-  height: 400px;
+  padding-top: 10vh;
+  min-height: 400px;
   width: 100%;
   background-color: #E28413;
   background-image: url('../images/arches.png');
