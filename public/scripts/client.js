@@ -49,7 +49,7 @@ const createTweetElement = (tweet) => {
       <p>${tweet.content.text}</p>
     </div>
     <div class="footer">
-      <p class="date">${tweet.created_at}</p>
+      <p class="date">${timeago.format(tweet.created_at)}</p>
       <div class="icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -63,7 +63,7 @@ const createTweetElement = (tweet) => {
 };
 
 $(() => {
-  renderTweets(data);
+  // renderTweets(data);
 
   $('.new-tweet').submit(function(event) {
     event.preventDefault();
@@ -81,5 +81,16 @@ $(() => {
     });
   });
 
-
+  const loadTweets = () => {
+    $.ajax({
+      url: "/tweets",
+      type: "GET"
+    })
+    .then((data) => {
+      renderTweets(data);
+    })    
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+  }
 });
