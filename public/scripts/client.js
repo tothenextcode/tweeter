@@ -29,6 +29,8 @@ const data = [
   }
 ];
 
+const MAX_CHARS = 140;
+
 const renderTweets = (tweets) => {
   for (const tweet of tweets) {
     $('#tweets-container').append(createTweetElement(tweet));
@@ -65,16 +67,26 @@ const createTweetElement = (tweet) => {
 $(() => {
   // renderTweets(data);
 
-  $('.new-tweet').submit(function(event) {
+  $('#post-tweet').submit(function(event) {
     event.preventDefault();
+    
+    const textField = $('#tweet-text').val();
+
+    if (!textField) {
+      return alert('Error: Please enter a valid message to post tweet.');
+    }
+
+    if (textField.length > MAX_CHARS) {
+      return alert('Error: Exceeded maximum alloted characters for tweet.');
+    }
 
     $.ajax({
       url: "/tweets",
       type: "POST",
-      data: $('form').serialize()
+      data: $(this).serialize()
     })
     .then((data) => {
-      console.log("Data sent over:", data);
+      $(this).trigger('reset');
     })
     .catch((err) => {
       console.log("Error:", err);
