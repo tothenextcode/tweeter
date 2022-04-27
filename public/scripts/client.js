@@ -79,7 +79,7 @@ $(() => {
     .catch((err) => {
       console.log("Error:", err);
     });
-
-    console.log($('form').serialize());
   });
+
+
 });
