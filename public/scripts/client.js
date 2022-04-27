@@ -15,6 +15,12 @@ const renderTweets = (tweets) => {
   }
 }
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweet) => {
   let $tweet = (`
   <article class="tweet">
@@ -26,7 +32,7 @@ const createTweetElement = (tweet) => {
       <p class="handle">${tweet.user.handle}</p>
     </div>
     <div class="message">
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </div>
     <div class="footer">
       <p class="date">${timeago.format(tweet.created_at)}</p>
@@ -41,6 +47,8 @@ const createTweetElement = (tweet) => {
 
   return $tweet;
 };
+
+
 
 $(() => {
   $('#post-tweet').submit(function(event) {
