@@ -1,7 +1,7 @@
 $(() => {
 
   $('textarea').on('input', function() {
-    const charLength = 140 - $(this).val().length;
+    const charLength = MAX_CHARS - $(this).val().length;
     const $counter = $(this).siblings().children('.counter');
 
     if (charLength < 0) {
