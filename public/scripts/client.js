@@ -64,4 +64,22 @@ const createTweetElement = (tweet) => {
 
 $(() => {
   renderTweets(data);
+
+  $('.new-tweet').submit(function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: "/tweets",
+      type: "POST",
+      data: $('form').serialize()
+    })
+    .then((data) => {
+      console.log("Data sent over:", data);
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+
+    console.log($('form').serialize());
+  });
 });
