@@ -1,14 +1,12 @@
-/* .new-tweet {
+.new-tweet {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-} */
+}
 
 .new-tweet form {
   display: flex;
   flex-direction: column;
-  width: 50rem;
 }
 
 .new-tweet textarea {
@@ -18,7 +16,7 @@
   margin-bottom: 1rem;
   min-height: 2rem;
   max-height: 4rem;
-  max-width: 100%;
+  width: 100%;
 }
 
 .new-tweet div {
