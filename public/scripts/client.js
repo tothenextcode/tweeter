@@ -31,11 +31,11 @@ const data = [
 
 const renderTweets = (tweets) => {
   for (const tweet of tweets) {
-    $('#tweets-container').append($createTweetElement(tweet));
+    $('#tweets-container').append(createTweetElement(tweet));
   }
 }
 
-const $createTweetElement = (tweet) => {
+const createTweetElement = (tweet) => {
   let $tweet = (`
   <article class="tweet">
     <div class="header">
