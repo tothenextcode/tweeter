@@ -1,0 +1,9 @@
+footer div {
+  background-color: #E28413;
+  color: white;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 2rem;
+  border-radius: 50%;
+}
