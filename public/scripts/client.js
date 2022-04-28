@@ -118,5 +118,13 @@ $(() => {
     }
   });
 
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > $('h2').offset().top) {
+      $('.write-tweet').hide();
+    } else {
+      $('.write-tweet').show();
+    }
+  });
+
   loadTweets();
 });
