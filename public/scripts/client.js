@@ -121,9 +121,21 @@ $(() => {
   $(window).scroll(function() {
     if ($(this).scrollTop() > $('h2').offset().top) {
       $('.write-tweet').hide();
+      $('.back-to-top').show();
     } else {
       $('.write-tweet').show();
+      $('.back-to-top').hide();
     }
+  });
+
+  $('.back-to-top').on('click', () => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+    $('.new-tweet').slideDown();
+    $('#tweet-text').focus();
   });
 
   loadTweets();
