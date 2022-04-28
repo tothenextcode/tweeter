@@ -23,6 +23,16 @@
   margin-bottom: -1px;
 }
 
+.write-tweet i {
+  animation: up-down 2s ease-in-out infinite;
+}
+
+@keyframes up-down {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(50%); }
+  0% { transform: translateY(0); }
+}
+
 span{
   font-family: 'Bungee', sans-serif;
 }
