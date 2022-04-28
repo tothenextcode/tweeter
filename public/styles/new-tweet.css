@@ -11,12 +11,15 @@
 
 .new-tweet textarea {
   background: transparent;
+  margin-bottom: 1rem;
+  max-height: 4rem;
+  max-width: 100%;
+  resize: none;
+}
+
+.line-border {
   border: none;
   border-bottom: 3px solid #545149;
-  margin-bottom: 1rem;
-  min-height: 2rem;
-  max-height: 4rem;
-  width: 100%;
 }
 
 .new-tweet div {
@@ -33,4 +36,24 @@
 
 .red {
   color: red;
+}
+
+.error {
+  display: flex;
+  color: red;
+  align-items: center;
+}
+
+.error p {
+  margin: auto 1rem;
+  font-size: smaller;
+}
+
+.border-error {
+  border: none;
+  border: 3px solid red;
+}
+
+.no-error {
+  display: none;
 }
