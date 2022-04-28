@@ -48,20 +48,37 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 
+const showError = (flag) => {
 
+  if (flag) {
+    $('#error').addClass('error');
+    $('#tweet-text').addClass('border-error');
+    $('#error').removeClass('no-error');
+    $('#tweet-text').removeClass('line-border');
+    $('#tweet-text').focus();
+    return;
+  }
+
+  $('#error').removeClass('error border-error');
+  $('#tweet-text').removeClass('border-error');
+  $('#error').addClass('no-error');
+  $('#tweet-text').addClass('line-border');
+};
 
 $(() => {
   $('#post-tweet').submit(function(event) {
     event.preventDefault();
     
-    const textField = $('#tweet-text').val();
+    const textField = $('#tweet-text').val().trim();
 
     if (!textField) {
-      return alert('Error: Please enter a valid message to post tweet.');
+      showError(true);
+      return $('.error p').text('Error: Please enter a valid message to post tweet.');
     }
 
     if (textField.length > MAX_CHARS) {
-      return alert('Error: Exceeded maximum alloted characters for tweet.');
+      showError(true);
+      return $('.error p').text(`Error: Exceeded maximum alloted characters of ${MAX_CHARS} for tweet.`);
     }
 
     $.ajax({
@@ -70,6 +87,7 @@ $(() => {
       data: $(this).serialize()
     })
     .then(() => {
+      showError(false);
       $(this).trigger('reset');
       loadTweets();
     })
