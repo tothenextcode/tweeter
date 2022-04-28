@@ -1,0 +1,21 @@
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    font-size: 20px;
+  }
+
+  .nav-bar{
+    background-color: #4056A1;
+  }
+
+  .header {
+    margin-top: 10vh;
+  }
+
+  .container {
+    margin-top: 20vh;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+  }
+}
