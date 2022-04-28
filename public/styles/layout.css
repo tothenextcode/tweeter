@@ -35,3 +35,23 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+/*
+ * Global style classes
+ */
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
