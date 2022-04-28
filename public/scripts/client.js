@@ -109,5 +109,14 @@ $(() => {
     });
   }
 
+  $('.write-tweet').on('click', () => {
+    if ($('.new-tweet').is(':visible')) {
+      $('.new-tweet').slideUp();
+    } else {
+      $('.new-tweet').slideDown();
+      $('#tweet-text').focus();
+    }
+  });
+
   loadTweets();
 });
