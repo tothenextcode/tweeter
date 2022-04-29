@@ -66,6 +66,8 @@ const showError = (flag) => {
 };
 
 $(() => {
+  const headerTop = $('.avatar').offset().top;
+
   $('#post-tweet').submit(function(event) {
     event.preventDefault();
     
@@ -119,7 +121,7 @@ $(() => {
   });
 
   $(window).scroll(function() {
-    if ($(this).scrollTop() > $('h2').offset().top) {
+    if ($(this).scrollTop() > headerTop) {
       $('.write-tweet').hide();
       $('.back-to-top').show();
     } else {
