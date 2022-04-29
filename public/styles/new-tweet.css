@@ -1,14 +1,22 @@
-.new-tweet {
+.new-tweet form, .new-tweet div, .error, .new-tweet {
   display: flex;
-  flex-direction: column;
+}
+
+.new-tweet {
   justify-content: center;
 }
 
+.new-tweet div, .error {
+  align-items: center;
+}
+
 .new-tweet form {
-  display: flex;
   flex-direction: column;
 }
 
+.new-tweet {
+  flex-direction: column;
+}
 .new-tweet textarea {
   background: transparent;
   margin-bottom: 1rem;
@@ -16,32 +24,22 @@
   max-width: 100%;
   resize: none;
 }
+.new-tweet div {
+  font-family: "Bungee";
+  justify-content: space-between;
+}
+.new-tweet .new-tweet button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
 
 .line-border {
   border: none;
   border-bottom: 3px solid #545149;
 }
 
-.new-tweet div {
-  font-family: "Bungee";
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.new-tweet button {
-  background-color: #4056A1;
-  color: #FFFFFF;
-}
-
-.red {
+.red, .error {
   color: red;
-}
-
-.error {
-  display: flex;
-  color: red;
-  align-items: center;
 }
 
 .error p {
@@ -52,8 +50,4 @@
 .border-error {
   border: none;
   border: 3px solid red;
-}
-
-.no-error {
-  display: none;
 }

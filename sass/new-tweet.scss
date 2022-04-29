@@ -1,37 +1,36 @@
+@use 'variables';
+
 .new-tweet {
-  display: flex;
+  @extend %flex-justify-center;
   flex-direction: column;
-  justify-content: center;
-}
 
-.new-tweet form {
-  display: flex;
-  flex-direction: column;
-}
+  form {
+    @extend %flex-column;
+  }
 
-.new-tweet textarea {
-  background: transparent;
-  margin-bottom: 1rem;
-  max-height: 4rem;
-  max-width: 100%;
-  resize: none;
+  textarea {
+    background: transparent;
+    margin-bottom: 1rem;
+    max-height: 4rem;
+    max-width: 100%;
+    resize: none;
+  }
+
+  div {
+    font-family: "Bungee";
+    @extend %flex-align-center;
+    justify-content: space-between;
+  }
+  
+  .new-tweet button {
+    background-color: variables.$nav-color;
+    color: #FFFFFF;
+  }
 }
 
 .line-border {
   border: none;
-  border-bottom: 3px solid #545149;
-}
-
-.new-tweet div {
-  font-family: "Bungee";
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.new-tweet button {
-  background-color: #4056A1;
-  color: #FFFFFF;
+  border-bottom: variables.$gray-border;
 }
 
 .red {
@@ -39,21 +38,16 @@
 }
 
 .error {
-  display: flex;
-  color: red;
-  align-items: center;
-}
+  @extend %flex-align-center;
+  @extend .red;
 
-.error p {
-  margin: auto 1rem;
-  font-size: smaller;
+  p {
+    margin: auto 1rem;
+    font-size: smaller;
+  }
 }
 
 .border-error {
   border: none;
   border: 3px solid red;
-}
-
-.no-error {
-  display: none;
 }

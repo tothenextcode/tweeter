@@ -1,33 +1,38 @@
+.write-tweet, .nav-bar {
+  display: flex;
+}
+
+.write-tweet {
+  justify-content: center;
+}
+
+.write-tweet, .nav-bar {
+  align-items: center;
+}
+
 .nav-bar {
   height: 120px;
   width: 100%;
-  /* background-color: #4056A1; */
   background-color: transparent;
   color: #FFFFFF;
   position: fixed;
   top: 0;
   z-index: 10;
   padding: 0 1.5em;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .write-tweet {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 .write-tweet:hover {
   cursor: pointer;
 }
-
 .write-tweet p {
   margin-bottom: -1px;
 }
-
 .write-tweet i {
   animation: up-down 2s ease-in-out infinite;
 }
@@ -43,10 +48,6 @@
     transform: translateY(0);
   }
 }
-span {
-  font-family: "Bungee", sans-serif;
-}
-
 #logo {
   font-size: 3rem;
 }

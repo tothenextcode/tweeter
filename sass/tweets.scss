@@ -1,7 +1,9 @@
+@use 'variables';
+
 .tweet {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  border: 4px solid #545149;
+  border: 4px solid variables.$gray-theme;
   padding: 1rem 3rem;
   width: 100%;
 }
@@ -13,20 +15,19 @@
 .header {
   display: flex;
   justify-content: space-between;
-}
 
-.header div {
-  display: flex;
-  align-items: center;
-}
+  div {
+    @extend %flex-align-center;
+  }
 
-.header img {
-  margin-left: -0.8rem;
-}
-
-.header h3 {
-  margin-left: 1rem;
-  font-weight: lighter;
+  img {
+    margin-left: -0.8rem;
+  }
+  
+  h3 {
+    margin-left: 1rem;
+    font-weight: lighter;
+  }
 }
 
 .handle {
@@ -38,11 +39,12 @@
   padding-bottom: 2rem;
   border-bottom: 4px solid #545149;
   margin: 3rem -1rem 1rem -1rem;
-}
 
-.message p {
-  margin-left: 1em;
-  margin-right: 1em;
+  p {
+    word-wrap: break-word;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 .footer {
@@ -58,12 +60,12 @@
 
 .icons {
   font-size: large;
-}
 
-.icons i {
-  margin: 0 4px;
-}
+  i {
+    margin: 0 4px;
+  }
 
-.icons i:hover {
-  color: darkgoldenrod;
+  i:hover {
+    color: darkgoldenrod;
+  }
 }

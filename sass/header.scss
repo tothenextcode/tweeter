@@ -1,12 +1,12 @@
+@use 'variables';
+
 header {
   padding-top: 10vh;
-  min-height: 400px;
+  height: 400px;
   width: 100%;
-  background-color: #E28413;
+  background-color: variables.$orange-theme;
   background-image: url('../images/arches.png');
-  display: flex;
+  @extend %flex-center-all;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 

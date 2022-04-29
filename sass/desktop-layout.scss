@@ -1,3 +1,5 @@
+@use 'variables';
+
 @media only screen and (min-width: 1024px) {
   .nav-spacer {
     margin-top: 10rem;
@@ -6,7 +8,7 @@
   }
 
   .nav-bar {
-    background-color: #4056A1;
+    background-color: variables.$nav-color;
   }
 
   header {

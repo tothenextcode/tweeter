@@ -1,8 +1,10 @@
+@use 'variables';
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
 html {
   box-sizing: border-box;
 }
@@ -16,7 +18,7 @@ html {
 
 
 body {
-  color: #545149;
+  color: variables.$gray-theme;
   background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
@@ -27,34 +29,24 @@ body {
  */
 
 .nav-spacer {
-  display: flex;
+  @extend %flex-align-center;
   flex-direction: column;
-  align-items: center;
 }
 
 .container {
   width: 90%;
-  /* display: flex;
+  @extend %flex-justify-center;
   flex-direction: column;
-  justify-content: center; */
 }
 
 /*
  * Global style classes
  */
 
-.flex {
-  display: flex;
+span{
+  font-family: 'Bungee', sans-serif;
 }
 
-.column {
-  flex-direction: column;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.align-center {
-  align-items: center;
+.no-error {
+  display: none;
 }

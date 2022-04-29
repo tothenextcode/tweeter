@@ -1,11 +1,20 @@
 header {
+  display: flex;
+}
+
+header {
+  justify-content: center;
+}
+
+header {
+  align-items: center;
+}
+
+header {
   padding-top: 10vh;
-  min-height: 400px;
+  height: 400px;
   width: 100%;
   background-color: #E28413;
   background-image: url("../images/arches.png");
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

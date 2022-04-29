@@ -1,3 +1,11 @@
+.header div {
+  display: flex;
+}
+
+.header div {
+  align-items: center;
+}
+
 .tweet {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -14,16 +22,9 @@
   display: flex;
   justify-content: space-between;
 }
-
-.header div {
-  display: flex;
-  align-items: center;
-}
-
 .header img {
   margin-left: -0.8rem;
 }
-
 .header h3 {
   margin-left: 1rem;
   font-weight: lighter;
@@ -39,11 +40,10 @@
   border-bottom: 4px solid #545149;
   margin: 3rem -1rem 1rem -1rem;
 }
-
 .message p {
+  word-wrap: break-word;
   margin-left: 1em;
   margin-right: 1em;
-  word-wrap: break-word;
 }
 
 .footer {
@@ -60,11 +60,9 @@
 .icons {
   font-size: large;
 }
-
 .icons i {
   margin: 0 4px;
 }
-
 .icons i:hover {
   color: darkgoldenrod;
 }
