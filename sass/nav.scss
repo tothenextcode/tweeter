@@ -21,7 +21,7 @@
 }
 
 .write-tweet:hover {
-  cursor: pointer;
+  cursor: pointer
 }
 
 .write-tweet p {
@@ -33,18 +33,13 @@
 }
 
 @keyframes up-down {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  0% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(50%); }
+  0% { transform: translateY(0); }
 }
-span {
-  font-family: "Bungee", sans-serif;
+
+span{
+  font-family: 'Bungee', sans-serif;
 }
 
 #logo {
