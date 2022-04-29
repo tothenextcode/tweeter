@@ -1,5 +1,4 @@
 @media only screen and (min-width: 1024px) {
-
   .nav-spacer {
     margin-top: 10rem;
     flex-direction: row;
@@ -13,10 +12,10 @@
   header {
     display: flex;
     position: sticky;
-    width: 60%;
+    width: 25%;
     top: 12rem;
     margin-left: 3vw;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
     border-radius: 5%;
     align-self: flex-start;
   }
@@ -24,18 +23,15 @@
   .container {
     padding-left: 4rem;
     padding-right: 4rem;
+    max-width: 75%;
   }
 }
-
 @media only screen and (min-width: 1024px) and (max-width: 1530px) {
-
   #error i {
     display: none;
   }
 }
-
 @media only screen and (max-width: 940px) {
-
   #error i {
     display: none;
   }

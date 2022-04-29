@@ -43,6 +43,7 @@
 .message p {
   margin-left: 1em;
   margin-right: 1em;
+  word-wrap: break-word;
 }
 
 .footer {
@@ -51,10 +52,10 @@
   font-size: small;
 }
 
-.date{
+.date {
   margin: 0;
   color: black;
-} 
+}
 
 .icons {
   font-size: large;
