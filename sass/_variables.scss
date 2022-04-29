@@ -1,0 +1,42 @@
+$nav-color: #4056A1;
+$gray-theme: #545149;
+$orange-theme: #E28413;
+$gray-border: 3px solid #545149;
+
+%flex {
+  display: flex;
+}
+
+%justify-center {
+  justify-content: center;
+}
+
+%align-center {
+  align-items: center;
+}
+
+%flex-justify-center {
+  @extend %flex;
+  @extend %justify-center;
+}
+
+%flex-align-center {
+  @extend %flex;
+  @extend %align-center;
+}
+
+%flex-center-all {
+  @extend %flex;
+  @extend %justify-center;
+  @extend %align-center;
+}
+
+%flex-column {
+  @extend %flex;
+  flex-direction: column;
+}
+
+%flex-row {
+  @extend %flex;
+  flex-direction: row;
+}
