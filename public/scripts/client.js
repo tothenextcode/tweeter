@@ -43,7 +43,6 @@ const loadTweets = () => {
 
 const postTweet = function(event) {
   event.preventDefault();
-  console.log($(this));
   const textField = $(this).children('#tweet-text').val().trim();
 
   if (!textField) {
