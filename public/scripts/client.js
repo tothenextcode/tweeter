@@ -4,18 +4,70 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 const MAX_CHARS = 140;
+let headerTop;
+
+$(() => {
+  // Set header height top value for scrolling to check when back-to-top button should appear 
+  headerTop = $('.avatar').offset().top;
+
+  $('#post-tweet').submit(postTweet);
+  $('.write-tweet').on('click', toggleComposeTweet);
+  $(window).scroll(toggleBackToTopButton);
+  $('.back-to-top').on('click', scrollBackTop);
+
+  loadTweets();
+});
 
 const renderTweets = (tweets) => {
-  $('#tweets-container').empty();
+  const $tweetsContainer = $('#tweets-container');
+  $tweetsContainer.empty();
+  
+  // Reset form
+  $tweetsContainer.siblings('section').find('#post-tweet').trigger('reset');
 
   for (const tweet of tweets) {
-    $('#tweets-container').prepend(createTweetElement(tweet));
+    $tweetsContainer.prepend(createTweetElement(tweet));
   }
-}
+};
 
-const escape = function (str) {
+const loadTweets = () => {
+  $.get("/tweets")
+    .then((data) => {
+      renderTweets(data);
+    })    
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+};
+
+const postTweet = function(event) {
+  event.preventDefault();
+  console.log($(this));
+  const textField = $(this).children('#tweet-text').val().trim();
+
+  if (!textField) {
+    showError(true);
+    return $('.error p').text('Error: Please enter a valid message to post tweet.');
+  }
+
+  if (textField.length > MAX_CHARS) {
+    showError(true);
+    return $('.error p').text(`Error: Exceeded maximum alloted characters of ${MAX_CHARS} for tweet.`);
+  }
+
+  $.post("/tweets", $(this).serialize())
+    .then(() => {
+      showError(false);
+      loadTweets();
+    })
+    .catch((err) => {
+      console.log("Error:", err);
+    });
+};
+
+// Force escape on text to prevent Cross-site Scripting
+const safeText = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -32,7 +84,7 @@ const createTweetElement = (tweet) => {
       <p class="handle">${tweet.user.handle}</p>
     </div>
     <div class="message">
-      <p>${escape(tweet.content.text)}</p>
+      <p>${safeText(tweet.content.text)}</p>
     </div>
     <div class="footer">
       <p class="date">${timeago.format(tweet.created_at)}</p>
@@ -48,97 +100,50 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 
-const showError = (flag) => {
+const toggleComposeTweet = function() {
+  $newTweet = $(this).closest('nav').siblings('main').find('.new-tweet');
+  $newTweet.slideToggle();
 
+  if (!$newTweet.is(':visible')) $('#tweet-text').focus();
+};
+
+// Highlight tweet content in red on show error
+const showError = (flag) => {
+  $error = $('#error');
+  $tweetText = $('#tweet-text');
+  
   if (flag) {
-    $('#error').addClass('error');
-    $('#tweet-text').addClass('border-error');
-    $('#error').removeClass('no-error');
-    $('#tweet-text').removeClass('line-border');
-    $('#tweet-text').focus();
+    $error.addClass('error');
+    $tweetText.addClass('border-error');
+    $error.removeClass('no-error');
+    $tweetText.removeClass('line-border');
+    $tweetText.focus();
     return;
   }
 
-  $('#error').removeClass('error border-error');
-  $('#tweet-text').removeClass('border-error');
-  $('#error').addClass('no-error');
-  $('#tweet-text').addClass('line-border');
+  $error.removeClass('error border-error');
+  $tweetText.removeClass('border-error');
+  $error.addClass('no-error');
+  $tweetText.addClass('line-border');
 };
 
-$(() => {
-  const headerTop = $('.avatar').offset().top;
-
-  $('#post-tweet').submit(function(event) {
-    event.preventDefault();
-    
-    const textField = $('#tweet-text').val().trim();
-
-    if (!textField) {
-      showError(true);
-      return $('.error p').text('Error: Please enter a valid message to post tweet.');
-    }
-
-    if (textField.length > MAX_CHARS) {
-      showError(true);
-      return $('.error p').text(`Error: Exceeded maximum alloted characters of ${MAX_CHARS} for tweet.`);
-    }
-
-    $.ajax({
-      url: "/tweets",
-      type: "POST",
-      data: $(this).serialize()
-    })
-    .then(() => {
-      showError(false);
-      $(this).trigger('reset');
-      loadTweets();
-    })
-    .catch((err) => {
-      console.log("Error:", err);
-    });
-  });
-
-  const loadTweets = () => {
-    $.ajax({
-      url: "/tweets",
-      type: "GET"
-    })
-    .then((data) => {
-      renderTweets(data);
-    })    
-    .catch((err) => {
-      console.log("Error:", err);
-    });
+// Back to top button appears once past avatar top 
+const toggleBackToTopButton = function() {
+  if ($(this).scrollTop() > headerTop) {
+    $('.write-tweet').hide();
+    $('.back-to-top').show();
+  } else {
+    $('.write-tweet').show();
+    $('.back-to-top').hide();
   }
+};
 
-  $('.write-tweet').on('click', () => {
-    if ($('.new-tweet').is(':visible')) {
-      $('.new-tweet').slideUp();
-    } else {
-      $('.new-tweet').slideDown();
-      $('#tweet-text').focus();
-    }
+const scrollBackTop = function() {
+  window.scroll({
+    top: 0, 
+    left: 0, 
+    behavior: 'smooth'
   });
-
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > headerTop) {
-      $('.write-tweet').hide();
-      $('.back-to-top').show();
-    } else {
-      $('.write-tweet').show();
-      $('.back-to-top').hide();
-    }
-  });
-
-  $('.back-to-top').on('click', () => {
-    window.scroll({
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth'
-    });
-    $('.new-tweet').slideDown();
-    $('#tweet-text').focus();
-  });
-
-  loadTweets();
-});
+  $('.new-tweet').slideDown();
+  $('#tweet-text').focus();
+};
